@@ -144,6 +144,32 @@ void ReverseAnArrayUsingRecursion(int l,int r,int arr[]) {
 	ReverseAnArrayUsingRecursion(l + 1, r-1,arr);
 }
 
+//Reverse an array using single pointer
+
+void ReverseAnArrayUsingRecursionSinglePointer(int l, int r, int arrnew[]) {
+	
+	if (l >= r/2) {
+		return;
+	}
+	swap(arrnew[l], arrnew[r-l-1]);
+	ReverseAnArrayUsingRecursionSinglePointer(l + 1, r, arrnew);
+}
+
+
+//check for Palindrome using Recursion
+
+
+bool PalindromeCheckUsingRecursionSinglePointer(int l, int r, string s) {
+	
+	if (l >= r / 2) return true;
+
+	if (s[l] != s[r - l - 1])
+		return false;
+
+	//swap(s[l], s[r - l - 1]);
+	return PalindromeCheckUsingRecursionSinglePointer(l + 1, r, s);
+}
+
 int main()
 {
 	int n, i = 1;
@@ -220,6 +246,37 @@ int main()
 		cout << arr[i] << " ";
 	}
 	cout << "in main" << endl;
+
+
+	cout << "ReverseAnArrayUsingRecursionSinglePointer" << endl;
+	int arrnew[5] = { 2,1,5,4,3 };
+	int lengthofArraynew = sizeof(arrnew) / sizeof(int);
+	cout << lengthofArraynew << endl;
+	//cout << lengthofArray;
+	for (int i = 0; i < lengthofArray ; i++) {
+		cout << arrnew[i] << " ";
+	}
+	cout << "After Reverse" << endl;
+	ReverseAnArrayUsingRecursionSinglePointer(0, lengthofArraynew , arrnew);
+
+	for (int i = 0; i < lengthofArraynew; i++) {
+		cout << arrnew[i] << " ";
+	}
+	cout << endl;
+	cout << "in main" << endl;
+
+
+	//check for palindrome
+	cout << "PalindromeCheckUsingRecursionSinglePointer" << endl;
+	string s = "madam";
+	int lengthofstring = size(s);
+	cout << s << " " << "length of string is " << lengthofstring << endl;
+	//cout << lengthofArray;
+	
+	PalindromeCheckUsingRecursionSinglePointer(0, lengthofstring, s) ? cout << "Palindrome" : cout <<"Not a Palindrome";
+
+	
+	
 
 	return 0;
 }
