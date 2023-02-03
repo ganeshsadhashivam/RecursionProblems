@@ -170,6 +170,24 @@ bool PalindromeCheckUsingRecursionSinglePointer(int l, int r, string s) {
 	return PalindromeCheckUsingRecursionSinglePointer(l + 1, r, s);
 }
 
+
+
+//factorial of a number
+//0  1 1  2 3  5  8 fibonaci value
+//0  1 2  3 4  5  6  index
+int fibonacciOfNumber(int n){
+
+	if (n <= 1) {
+		return n;
+	}
+	int  first = fibonacciOfNumber(n - 1);
+
+	int  second = fibonacciOfNumber(n - 2);
+	
+	return  first + second;
+
+	}
+
 int main()
 {
 	int n, i = 1;
@@ -273,9 +291,14 @@ int main()
 	cout << s << " " << "length of string is " << lengthofstring << endl;
 	//cout << lengthofArray;
 	
-	PalindromeCheckUsingRecursionSinglePointer(0, lengthofstring, s) ? cout << "Palindrome" : cout <<"Not a Palindrome";
+	PalindromeCheckUsingRecursionSinglePointer(0, lengthofstring, s) ? cout << "Palindrome" : cout << "Not a Palindrome" << endl;
 
-	
+	cout << endl;
+	cout << "fibonacciOfNumber " << endl;
+
+	cout << fibonacciOfNumber(n) << endl;
+	cout << "in main" << endl;
+
 	
 
 	return 0;
